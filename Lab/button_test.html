@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Switch</title>
+    <style>
+        *,
+        label::after {
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s;
+        }
+
+        .switch {
+            display: none;
+        }
+
+        .switchToggle {
+            width: 4rem;
+            height: 2rem;
+            background: #354052;
+            box-shadow: 0px 4px 4px #00000040;
+            border-radius: 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100svh;
+        }
+
+        .switchToggle::after {
+            position: absolute;
+            left: -0.1rem;
+            top: -0.1rem;
+            content: "";
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            background: #FFA500;
+            background-image: url(../img/Icon/X.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            pointer-events: none;
+        }
+
+        .switch:checked+label {
+            background: #F5F5DC;
+        }
+
+        .switch:checked+label::after {
+            left: 2.1rem;
+            background-image: url(../img/Icon/checkmark-outline.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" class="switch" id="switch1" />
+    <label class="switchToggle" for="switch1"></label>
+    <div class="light"></div>
+</body>
+
+</html>

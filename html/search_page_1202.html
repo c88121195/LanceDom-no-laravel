@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav {
+            height: 100px;
+            background-color: #F5F7FA;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            margin: 0;
+        }
+
+        .logo {
+            padding: 0 10px;
+            flex: 3;
+        }
+
+        .navbar {
+            flex: 6;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 10px;
+        }
+
+        .navbar>a {
+            color: black;
+        }
+
+        .member {
+            flex: 3;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 10px;
+        }
+
+        .member>a {
+            color: rgb(89, 183, 183);
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            /* display: inline-block;  */
+            /* 設置為行內塊元素，讓內邊距生效 */
+            font-size: 16px;
+            /* 設置字體大小 */
+            text-align: center;
+            /* 文字居中 */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .member>.sign {
+            color: white;
+            background-color: rgb(89, 183, 183);
+        }
+
+        .member>a:hover {
+            background-color: white;
+            /* 背景顏色變為白色 */
+            color: rgb(89, 183, 183);
+            /* 文字顏色變為背景顏色 */
+            border: 1px solid rgb(89, 183, 183);
+            /* 保持邊框顏色 */
+        }
+
+        .container {
+            padding: 0 10px;
+            display: flex;
+        }
+
+        .options {
+            flex: 3;
+            height: 100%;
+            padding: 5px 20px;
+            margin: 40px;
+            border: 2px solid lightgray;
+            border-radius: 15px;
+        }
+
+
+        .keywords {
+            display: flex;
+            /* 使用彈性盒模型 */
+            flex-wrap: wrap;
+            gap: 10px;
+            /* 設置按鈕之間的間距 */
+        }
+
+        .keywords>a {
+            color: rgb(54, 54, 54);
+            margin: 5px 0;
+            padding: 5px 10px;
+            background-color: lightgray;
+            border-radius: 15px;
+            font-size: 16px;
+            /* 設置字體大小 */
+            text-align: center;
+            /* 文字居中 */
+        }
+
+        .maincontainer {
+            flex: 8;
+            padding: 10px 20px 10px 0px;
+        }
+
+        .search {
+            display: flex;
+        }
+
+        .keyword {
+            flex: 6;
+            height: 45px;
+            width: 380px;
+            border-radius: 30px;
+            border: 2px solid lightgray;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .keyword img {
+            margin: 0 30px;
+        }
+
+        .keyword p {
+            color: #626D7E;
+            margin: 0 10px;
+        }
+
+        .hanber {
+            flex: 1;
+            height: 40px;
+            /* border-radius: 20px; */
+            /* border: 2px solid lightgray; */
+            margin: 10px;
+            text-align: center;
+        }
+
+        /* 彈出框樣式 */
+        .modal {
+            display: none;
+            /* 初始隱藏 */
+            position: fixed;
+            z-index: 1;
+            /* width: 100%;  */
+            /* height: 100%;  */
+            /* overflow: auto; */
+        }
+
+        .modal-content {
+            background-color: #D9D9D9;
+            margin: 10px;
+            padding: 5px 10px;
+            border: 1px solid #888;
+            width: 200px;
+            height: auto;
+            position: fixed;
+            /* top: 50%;  */
+            right: 0;
+            /* transform: translateY(-50%); */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 1%;
+            top: -1%;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .myself {
+            flex: 3;
+            display: flex;
+        }
+
+        .photo {
+            flex: 1;
+            background-color: white;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .myself2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatcall {
+            flex: 1;
+            display: flex;
+        }
+
+        .chatcall img {
+            width: 90%;
+        }
+
+        .chat {
+            flex: 1;
+            margin: 4px;
+            border-radius: 20px;
+        }
+
+        .call {
+            flex: 1;
+            margin: 4px;
+            border-radius: 20px;
+        }
+
+        .introduction {
+            flex: 2;
+            font-size: 14px;
+        }
+
+        .information {
+            flex: 1;
+            font-size: 14px;
+            margin: -5px 0 5px 0;
+        }
+
+        .verify {
+            display: flex;
+            margin: 0;
+        }
+
+        .Star {
+            display: flex;
+            margin: 0 10px;
+        }
+
+        .case {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+
+        }
+
+        .everycase {
+            flex: 1;
+            background-color: white;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .order {
+            display: flex;
+            height: 40px;
+            border-radius: 15px;
+            background-color: lightgray;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .order p,
+        .order>a {
+            flex: 3;
+            margin: 10px;
+            color: #354052;
+        }
+
+        .contentone {
+            background-color: #7fc5d280;
+            height: 300px;
+            border-radius: 10px;
+            margin: 20px 10px;
+            display: flex;
+        }
+
+        .content {
+            background-color: #F5F5DC;
+            height: 300px;
+            border-radius: 10px;
+            margin: 20px 10px;
+            display: flex;
+        }
+
+        .content1 {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .hot {
+            float: left;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            border-radius: 20px;
+            height: 40px;
+            width: 40px;
+        }
+
+        .companyphoto {
+            flex: 8;
+            /* height: 170px;
+    width: 170px; */
+            background-color: white;
+            border-radius: 100px;
+            margin: 5px 25px;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .companyphoto img {
+            max-width: 100%;
+            /* 確保圖片不超出父容器 */
+            max-height: 100%;
+            /* 確保圖片不超出父容器 */
+            margin: auto;
+        }
+
+        .companyname {
+            flex: 2;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .companystar {
+            flex: 2;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .content2 {
+            flex: 7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            flex: 1;
+        }
+
+        .title>h1 {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .set {
+            flex: 1;
+            display: flex;
+        }
+
+        .date {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .caseprice {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .location {
+            flex: 1;
+        }
+
+        .casecontent {
+            flex: 1;
+        }
+
+        .require {
+            flex: 1;
+            display: flex;
+        }
+
+        .require div {
+            display: flex;
+        }
+
+        .require div p {
+            background-color: #F0F0F0;
+            border-radius: 20px;
+            padding: 4px 15px;
+            margin: 15px 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contentnew img {
+            margin: 15px 0 0 0;
+        }
+
+        .content .contentnew img {
+            margin: 10px 0 0 0;
+        }
+
+        .content3 {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .time {
+            flex: 1;
+            font-weight: 700;
+            padding: 0 10px;
+            margin: 20px 5px;
+        }
+
+        .content3btn {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content3btn>a {
+            flex: 1.5;
+            color: black;
+            background-color: #F5F5DC;
+            width: 75px;
+            border-radius: 50px;
+            padding: 0;
+            margin: 5px 30px;
+            display: flex;
+            /* 水平置中 */
+            justify-content: center;
+            /* 垂直置中 */
+            align-items: center;
+        }
+
+        .content .content3btn>a {
+            flex: 1.5;
+            color: black;
+            background-color: #81C7D4;
+            width: 75px;
+            border-radius: 50px;
+            padding: 0;
+            margin: 5px 30px;
+            display: flex;
+            /* 水平置中 */
+            justify-content: center;
+            /* 垂直置中 */
+            align-items: center;
+        }
+
+
+
+        .people {
+            flex: 1;
+            padding-top: 15px;
+            margin: 10px 20px 0px 20px;
+            font-size: 14px;
+            color: #354052;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .frequency {
+            flex: 1;
+            margin: 0px 20px;
+            font-size: 14px;
+            color: #354052;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab {
+            height: 40px;
+            display: flex;
+            margin: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab a {
+            color: white;
+            background-color: #464646;
+            border-radius: 5px;
+            padding: 9px 20px;
+            margin: 0 2px;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
+        }
+
+        .footer {
+            display: flex;
+            height: 125px;
+            background-color: #D3D3D3;
+        }
+
+        .icons {
+            flex: 4;
+            display: flex;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
+        }
+
+        .icons>a {
+            text-align: center;
+            padding: 10px;
+            /* 添加內邊距以提高可點擊區域 */
+            background-color: lightgray;
+            /* 添加背景色便於視覺區分 */
+            margin: 5px;
+            /* 添加外邊距以增加間距 */
+            color: black;
+            /* 設置文字顏色 */
+            transition: background-color 0.3s;
+            /* 添加過渡效果 */
+        }
+
+        .icons a:hover {
+            background-color: gray;
+            /* 鼠標懸停時改變背景色 */
+            color: white;
+            /* 鼠標懸停時改變文字顏色 */
+        }
+
+        .copyright {
+            flex: 4;
+            text-align: center;
+            margin: 25px 10px;
+        }
+
+        .copyright a,
+        .copyright>div+div {
+            color: black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<!-- 案件頁面 -->
+
+<body>
+    <div>
+        <!-- nav -->
+        <div class="nav">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="../img/LOGO.png" alt="">
+            </div>
+            <!-- navbar -->
+            <div class="navbar">
+                <a href="">Home</a>
+                <a href="">Service</a>
+                <a href="">Feature</a>
+                <a href="">Product</a>
+                <a href="">Testimonail </a>
+                <a href="">FAQ </a>
+            </div>
+            <!-- member -->
+            <div class="member">
+                <a href="">Login</a>
+                <a class="sign" href="">Sign up</a>
+            </div>
+        </div>
+
+        <!-- container -->
+        <div class="container">
+            <!-- options -->
+            <div class="options">
+                <!-- code type -->
+                <div class="code">
+                    <h2>篩選條件</h2>
+                    <hr>
+                    <h5>程式分類</h5>
+                    <p>全端工程師 Full Stack Engineer</p>
+                    <p>前端工程師 Front-End Engineer</p>
+                    <p>後端工程師 Back-End Engineer</p>
+                    <p>行動應用開發工程師 Mobile App Developer</p>
+                    <p>資料工程師 Data Engineer</p>
+                    <p>遊戲開發工程師 Game Developer</p>
+                    <p>安全工程師 Security Engineer</p>
+                    <p>DevOps工程師 DevOps Engineer</p>
+                    <p>嵌入式系統工程師 Embedded Systems Engineer</p>
+                </div>
+                <hr>
+                <!-- filter -->
+                <div class="filter">
+                    <h2>企業相關篩選</h2>
+                    <p>評價</p>
+                    <p>今日更新</p>
+                    <p>24HR內回覆</p>
+                    <p>案件需求時間</p>
+                </div>
+                <hr>
+                <!-- price -->
+                <div class="price">
+                    <h2>案件價錢</h2>
+                    <img src="../img/price.png" alt="">
+                </div>
+                <hr>
+                <!-- Keywords -->
+                <h2>關鍵字</h2>
+                <div class="keywords">
+                    <a href="">HTML</a>
+                    <a href="">C++</a>
+                    <a href="">UI</a>
+                    <a href="">UX</a>
+                    <a href="">JavaScript</a>
+                    <a href="">Python</a>
+                    <a href="">SQL</a>
+                    <a href="">Java</a>
+                    <a href="">PHP</a>
+                </div>
+            </div>
+            <!-- main container -->
+            <div class="maincontainer">
+                <!-- tab/search -->
+                <div class="search">
+                    <div style="flex:3"></div>
+                    <!-- search keyword -->
+                    <div class="keyword"><img src="../img/Search.png" alt="">
+                        <p style="font-size: 30px;">|</p>
+                        <p>search keyword</p>
+                    </div>
+                    <div style="flex:4"></div>
+                    <!-- hanber -->
+
+                    <!-- 觸發彈出框的按鈕 -->
+                    <div class="hanber">
+                        <!-- 觸發彈出框的連結 -->
+                        <a href="javascript:void(0);" id="openModalBtn" class="open-modal-btn"><img
+                                src="../img/hanber.png" style="width: 80%;" alt=""></a> <!-- 彈出框結構 -->
+                        <!-- 彈出框結構 -->
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="myself">
+                                    <div class="photo"><img src="../img/MAN 1.png" style="width: 100%;" alt=""></div>
+                                    <div class="myself2">
+                                        <div class="chatcall">
+                                            <div class="chat"><img src="../img/Chat Bubble.png" alt=""></div>
+                                            <div class="call"><img src="../img/call.png" alt=""></div>
+                                        </div>
+                                        <div class="introduction">Hi, 我是一隻可愛的狗勾</div>
+                                    </div>
+                                </div>
+                                <div class="information">
+                                    <div class="verify">
+                                        <img src="../img/Tick Box.png" style="width: 40px;" alt="">
+                                        <p>已驗證</p>
+                                    </div>
+                                    <div class="Star">忠誠度5顆星</div>
+                                </div>
+                                <div class="case">
+                                    <div class="everycase">2024/xx/xx X案件 剩X天</div>
+                                    <div class="everycase">2024/xx/xx X案件 剩X天</div>
+                                    <div class="everycase">2025/xx/xx X案件 剩X天</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- order -->
+                <div class="order">
+                    <p style="flex: 5;">顯示 1-5 of 共 2222 筆資料</p>
+                    <a href="">最近更新</a>
+                    <a href="">點閱率最高</a>
+                    <a href="">企業評價最高</a>
+                    <a href="">應徵人數</a>
+                </div>
+                <!-- content -->
+                <div>
+                    <!-- contentone -->
+                    <div class="contentone">
+                        <div class="content1">
+                            <div class="hot"><img src="../img/hot.png" alt=""></div>
+                            <div style="flex: 1;"></div>
+                            <div class="companyphoto">
+                                <img src="../img/company1.png" alt="">
+                            </div>
+                            <div class="companyname">
+                                <h4 style="margin: 5px;">快樂狗勾有限公司</h4>
+                            </div>
+                            <div class="companystar">(綠點)給我5顆星</div>
+                        </div>
+                        <div class="content2">
+                            <div class="title">
+                                <h1>獨立品牌網頁設計</h1>
+                            </div>
+                            <div class="set">
+                                <div class="date">
+                                    <h4>案件時間：2025/01/01-2025/04/30</h4>
+                                </div>
+                                <div class="caseprice">
+                                    <h4>案件預算：$20,000 - $50,000</h4>
+                                </div>
+                            </div>
+                            <div class="location">地區：台灣/台北市信義區</div>
+                            <div class="casecontent">
+                                快樂狗勾為一個新上市的品牌，需要設計一個具有品牌風格的網站，
+                                專注於提供優質、健康、和有趣的狗狗用品...更多
+                            </div>
+                            <div class="require">
+                                <p style="margin: 16px 4px;">需求語言：</p>
+                                <div>
+                                    <p>HTML</p>
+                                    <p>C++</p>
+                                    <p>CSS</p>
+                                    <p>Java</p>
+                                    <p>PHP</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div
+                            style="flex: 0.5; font-size: 10px; color: white; background-color: red; border-radius: 20px; width: 35px; height: 35px;margin: 15px 0; font-weight: 800; display: flex; justify-content: center; align-items: center;">
+                            NEW
+                        </div> -->
+                        <div class="contentnew">
+                            <img src="../img/New.png" alt="">
+                        </div>
+                        <div class="content3">
+                            <div class="time">3分鐘前更新</div>
+                            <div class="content3btn">
+                                <a class="collect" href="">收藏</a>
+                                <a class="takecase" href="">接案</a>
+                            </div>
+                            <div class="people">0~5 人爭取中</div>
+                            <div class="frequency">7777 瀏覽次數</div>
+                            <div style="flex: 1.5;"></div>
+                        </div>
+                    </div>
+                    <!-- content2 -->
+                    <div class="content">
+                        <div class="content1">
+                            <!-- <div class="hot"><img src="../img/hot.png" alt=""></div> -->
+                            <div style="flex: 1;"></div>
+                            <div class="companyphoto">
+                                <img src="../img/company2.png" alt="">
+                            </div>
+                            <div class="companyname">
+                                <h4 style="margin: 5px;">快樂狗勾有限公司</h4>
+                            </div>
+                            <div class="companystar">(綠點)給我5顆星</div>
+                        </div>
+                        <div class="content2">
+                            <div class="title">
+                                <h1>獨立品牌網頁設計</h1>
+                            </div>
+                            <div class="set">
+                                <div class="date">
+                                    <h4>案件時間：2025/01/01-2025/04/30</h4>
+                                </div>
+                                <div class="caseprice">
+                                    <h4>案件預算：$20,000 - $50,000</h4>
+                                </div>
+                            </div>
+                            <div class="location">地區：台灣/台北市信義區</div>
+                            <div class="casecontent">
+                                快樂狗勾為一個新上市的品牌，需要設計一個具有品牌風格的網站，
+                                專注於提供優質、健康、和有趣的狗狗用品...更多
+                            </div>
+                            <div class="require">
+                                <p style="margin: 16px 4px;">需求語言：</p>
+                                <div>
+                                    <p>HTML</p>
+                                    <p>C++</p>
+                                    <p>CSS</p>
+                                    <p>Java</p>
+                                    <p>PHP</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div
+                            style="flex: 0.5; font-size: 10px; color: white; background-color: red; border-radius: 20px; width: 35px; height: 35px;margin: 15px 0; font-weight: 800; display: flex; justify-content: center; align-items: center;">
+                            NEW
+                        </div> -->
+                        <div class="contentnew">
+                            <img src="../img/Fire.png" alt="">
+                        </div>
+                        <div class="content3">
+                            <div class="time">3分鐘前更新</div>
+                            <div class="content3btn">
+                                <a class="collect" href="">收藏</a>
+                                <a class="takecase" href="">接案</a>
+                            </div>
+                            <div class="people">0~5 人爭取中</div>
+                            <div class="frequency">7777 瀏覽次數</div>
+                            <div style="flex: 1.5;"></div>
+                        </div>
+                    </div>
+                    <!-- content3 -->
+                    <div class="content">
+                        <div class="content1">
+                            <!-- <div class="hot"><img src="../img/hot.png" alt=""></div> -->
+                            <div style="flex: 1;"></div>
+                            <div class="companyphoto">
+                                <img src="../img/company3.png" alt="">
+                            </div>
+                            <div class="companyname">
+                                <h4 style="margin: 5px;">快樂狗勾有限公司</h4>
+                            </div>
+                            <div class="companystar">(綠點)給我5顆星</div>
+                        </div>
+                        <div class="content2">
+                            <div class="title">
+                                <h1>獨立品牌網頁設計</h1>
+                            </div>
+                            <div class="set">
+                                <div class="date">
+                                    <h4>案件時間：2025/01/01-2025/04/30</h4>
+                                </div>
+                                <div class="caseprice">
+                                    <h4>案件預算：$20,000 - $50,000</h4>
+                                </div>
+                            </div>
+                            <div class="location">地區：台灣/台北市信義區</div>
+                            <div class="casecontent">
+                                快樂狗勾為一個新上市的品牌，需要設計一個具有品牌風格的網站，
+                                專注於提供優質、健康、和有趣的狗狗用品...更多
+                            </div>
+                            <div class="require">
+                                <p style="margin: 16px 4px;">需求語言：</p>
+                                <div>
+                                    <p>HTML</p>
+                                    <p>C++</p>
+                                    <p>CSS</p>
+                                    <p>Java</p>
+                                    <p>PHP</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div
+                            style="flex: 0.5; font-size: 10px; color: white; background-color: red; border-radius: 20px; width: 35px; height: 35px;margin: 15px 0; font-weight: 800; display: flex; justify-content: center; align-items: center;">
+                            NEW
+                        </div> -->
+                        <div class="contentnew"></div>
+                        <div class="content3">
+                            <div class="time">3分鐘前更新</div>
+                            <div class="content3btn">
+                                <a class="collect" href="">收藏</a>
+                                <a class="takecase" href="">接案</a>
+                            </div>
+                            <div class="people">0~5 人爭取中</div>
+                            <div class="frequency">7777 瀏覽次數</div>
+                            <div style="flex: 1.5;"></div>
+                        </div>
+                    </div>
+                    <!-- content4 -->
+                    <div class="content">
+                        <div class="content1">
+                            <!-- <div class="hot"><img src="../img/hot.png" alt=""></div> -->
+                            <div style="flex: 1;"></div>
+                            <div class="companyphoto">
+                                <img src="../img/company4.png" alt="">
+                            </div>
+                            <div class="companyname">
+                                <h4 style="margin: 5px;">快樂狗勾有限公司</h4>
+                            </div>
+                            <div class="companystar">(綠點)給我5顆星</div>
+                        </div>
+                        <div class="content2">
+                            <div class="title">
+                                <h1>獨立品牌網頁設計</h1>
+                            </div>
+                            <div class="set">
+                                <div class="date">
+                                    <h4>案件時間：2025/01/01-2025/04/30</h4>
+                                </div>
+                                <div class="caseprice">
+                                    <h4>案件預算：$20,000 - $50,000</h4>
+                                </div>
+                            </div>
+                            <div class="location">地區：台灣/台北市信義區</div>
+                            <div class="casecontent">
+                                快樂狗勾為一個新上市的品牌，需要設計一個具有品牌風格的網站，
+                                專注於提供優質、健康、和有趣的狗狗用品...更多
+                            </div>
+                            <div class="require">
+                                <p style="margin: 16px 4px;">需求語言：</p>
+                                <div>
+                                    <p>HTML</p>
+                                    <p>C++</p>
+                                    <p>CSS</p>
+                                    <p>Java</p>
+                                    <p>PHP</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div
+                            style="flex: 0.5; font-size: 10px; color: white; background-color: red; border-radius: 20px; width: 35px; height: 35px;margin: 15px 0; font-weight: 800; display: flex; justify-content: center; align-items: center;">
+                            NEW
+                        </div> -->
+                        <div class="contentnew"></div>
+                        <div class="content3">
+                            <div class="time">3分鐘前更新</div>
+                            <div class="content3btn">
+                                <a class="collect" href="">收藏</a>
+                                <a class="takecase" href="">接案</a>
+                            </div>
+                            <div class="people">0~5 人爭取中</div>
+                            <div class="frequency">7777 瀏覽次數</div>
+                            <div style="flex: 1.5;"></div>
+                        </div>
+                    </div>
+                    <!-- content5 -->
+                    <div class="content">
+                        <div class="content1">
+                            <!-- <div class="hot"><img src="../img/hot.png" alt=""></div> -->
+                            <div style="flex: 1;"></div>
+                            <div class="companyphoto">
+                                <img src="../img/company5.png" alt="">
+                            </div>
+                            <div class="companyname">
+                                <h4 style="margin: 5px;">快樂狗勾有限公司</h4>
+                            </div>
+                            <div class="companystar">(綠點)給我5顆星</div>
+                        </div>
+                        <div class="content2">
+                            <div class="title">
+                                <h1>獨立品牌網頁設計</h1>
+                            </div>
+                            <div class="set">
+                                <div class="date">
+                                    <h4>案件時間：2025/01/01-2025/04/30</h4>
+                                </div>
+                                <div class="caseprice">
+                                    <h4>案件預算：$20,000 - $50,000</h4>
+                                </div>
+                            </div>
+                            <div class="location">地區：台灣/台北市信義區</div>
+                            <div class="casecontent">
+                                快樂狗勾為一個新上市的品牌，需要設計一個具有品牌風格的網站，
+                                專注於提供優質、健康、和有趣的狗狗用品...更多
+                            </div>
+                            <div class="require">
+                                <p style="margin: 16px 4px;">需求語言：</p>
+                                <div>
+                                    <p>HTML</p>
+                                    <p>C++</p>
+                                    <p>CSS</p>
+                                    <p>Java</p>
+                                    <p>PHP</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div
+                            style="flex: 0.5; font-size: 10px; color: white; background-color: red; border-radius: 20px; width: 35px; height: 35px;margin: 15px 0; font-weight: 800; display: flex; justify-content: center; align-items: center;">
+                            NEW
+                        </div> -->
+                        <div class="contentnew"></div>
+                        <div class="content3">
+                            <div class="time">3分鐘前更新</div>
+                            <div class="content3btn">
+                                <a class="collect" href="">收藏</a>
+                                <a class="takecase" href="">接案</a>
+                            </div>
+                            <div class="people">0~5 人爭取中</div>
+                            <div class="frequency">7777 瀏覽次數</div>
+                            <div style="flex: 1.5;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- tab -->
+                <div class="tab">
+                    <a href="">(箭頭)最前頁</a>
+                    <a href="">(箭頭)上一頁</a>
+                    <a style="color: #464646; background-color: #FFA500; border: 1px solid #000000;" href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <p style="margin: 5px 10px;">...</p>
+                    <a href="">7</a>
+                    <a href="">8</a>
+                    <a href="">下一頁(箭頭)</a>
+                    <a href="">最後頁(箭頭)</a>
+                </div>
+            </div>
+            <div style="flex: 1;"></div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <!-- LOGO&icons -->
+            <div class="icons">
+                <a href=""><img src="../img/LOGO.png" alt=""></a>
+                <a href=""><img src="../img/LINE.png" alt=""></a>
+                <a href=""><img src="../img/Instagram.png" alt=""></a>
+                <a href=""><img src="../img/Facebook.png" alt=""></a>
+            </div>
+            <div style="flex: 4;"></div>
+            <!-- copyright -->
+            <div class="copyright">
+                <div>
+                    <a href="">網站公告</a>
+                    <a href="">關於我們</a>
+                    <a href="">會員條款</a>
+                </div>
+                <div>Copyright © 2024 LanceDom All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 獲取彈出框元素
+            var modal = document.getElementById("myModal");
+
+            // 獲取打開彈出框的按鈕
+            var btn = document.getElementById("openModalBtn");
+
+            // 獲取 <span> 元素，讓用戶可以關閉彈出框
+            var span = document.getElementsByClassName("close")[0];
+
+            // 當用戶點擊按鈕時打開彈出框
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // 當用戶點擊 <span> (x) 關閉彈出框
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // 當用戶點擊其他地方，關閉彈出框
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
