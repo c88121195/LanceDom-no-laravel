@@ -13,7 +13,7 @@
             transition: all 0.3s;
         }
 
-        .switch {
+        .switchHidden {
             display: none;
         }
 
@@ -49,11 +49,11 @@
             pointer-events: none;
         }
 
-        .switch:checked+label {
+        .switchHidden:checked+label {
             background: #F5F5DC;
         }
 
-        .switch:checked+label::after {
+        .switchHidden:checked+label::after {
             left: 2.1rem;
             background-image: url(../img/Icon/checkmark-outline.png);
             background-repeat: no-repeat;
@@ -64,7 +64,7 @@
 </head>
 
 <body>
-    <input type="checkbox" class="switch" id="switch1" />
+    <input type="checkbox" class="switchHidden" id="switch1" />
     <label class="switchToggle" for="switch1"></label>
     <div class="light"></div>
 </body>

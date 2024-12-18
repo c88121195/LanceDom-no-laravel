@@ -1,0 +1,201 @@
+.container>.mainContent {
+    margin-left: 40px;
+}
+
+.path {
+    margin: 30px 0;
+}
+
+.pathLink {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.pathLink>a {
+    color: black;
+}
+
+.allCase {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    margin: 40px 0px;
+    padding-bottom: 10px;
+    padding: 20px 0 10px;
+}
+
+.content {
+    height: 250px;
+    border-radius: 10px;
+    margin: 0 20px;
+    display: flex;
+}
+
+.caseInfo {
+    margin: 0 20px;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.postTime>P {
+    margin: 20px 0 10px;
+    font-size: 0.8rem;
+}
+
+.title>h2 {
+    margin: 10px 0;
+    text-shadow: 0 4px 4px #00000040;
+}
+
+.casecontent {
+    padding: 10px 0;
+    margin: auto 0;
+    text-align: justify;
+    font-size: 0.9rem;
+}
+
+.switchAndData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 20px 10px;
+}
+
+.switch{
+    display: flex;
+    margin-top: 20px;
+}
+
+.switch>label::after {
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+}
+
+.switchHidden {
+    display: none;
+}
+
+.switchToggle {
+    width: 3rem;
+    height: 1.3rem;
+    background: #354052;
+    box-shadow: 0px 4px 4px #00000040;
+    border-radius: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.switchToggle::after {
+    position: absolute;
+    left: -0.1rem;
+    top: -0.1rem;
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #FFA500;
+    background-image: url(../img/Icon/X.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    pointer-events: none;
+}
+
+.switchHidden:checked+label {
+    background: #F5F5DC;
+}
+
+.switchHidden:checked+label::after {
+    left: 1.6rem;
+    background-image: url(../img/Icon/checkmark-outline.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    
+}
+
+.caseData {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.caseData>p {
+    margin: 10px 0;
+    font-size: 0.8rem;
+}
+
+hr {
+    margin: 20px 30px;
+}
+
+
+.tab {
+    height: 40px;
+    display: flex;
+    margin: 50px 0 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab a {
+    color: white;
+    background-color: #464646;
+    border-radius: 5px;
+    padding: 9px 20px;
+    margin: 0 2px;
+    justify-content: center;
+    /* 水平置中 */
+    align-items: center;
+    /* 垂直置中 */
+}
+
+.footer {
+    display: flex;
+    height: 125px;
+    background-color: #D3D3D3;
+}
+
+.icons {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    /* 水平置中 */
+    align-items: center;
+    /* 垂直置中 */
+}
+
+.icons>a {
+    text-align: center;
+    padding: 10px;
+    /* 添加內邊距以提高可點擊區域 */
+    background-color: lightgray;
+    /* 添加背景色便於視覺區分 */
+    margin: 5px;
+    /* 添加外邊距以增加間距 */
+    color: black;
+    /* 設置文字顏色 */
+    transition: background-color 0.3s;
+    /* 添加過渡效果 */
+}
+
+.icons a:hover {
+    background-color: gray;
+    /* 鼠標懸停時改變背景色 */
+    color: white;
+    /* 鼠標懸停時改變文字顏色 */
+}
+
+.copyright {
+    flex: 4;
+    text-align: center;
+    margin: 25px 10px;
+}
+
+.copyright a,
+.copyright>div+div {
+    color: black;
+    padding: 20px;
+}
